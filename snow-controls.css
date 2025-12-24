@@ -1,0 +1,136 @@
+/* snow-controls.css - Стили для элементов управления снегопадом */
+
+/* Контейнер для кнопок управления снегом */
+.snow-controls {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Кнопка управления снегом */
+.snow-toggle {
+    background: linear-gradient(135deg, #4dffea 0%, #1a8cff 100%);
+    border: none;
+    border-radius: 50px;
+    color: white;
+    padding: 12px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    z-index: 1001;
+}
+
+.snow-toggle:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.snow-toggle:active {
+    transform: translateY(1px);
+}
+
+.snow-toggle i {
+    font-size: 16px;
+}
+
+/* Слайдер интенсивности снега */
+.snow-intensity-control {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 10px 15px;
+    border-radius: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.snow-intensity-control label {
+    color: white;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.snow-intensity-control input[type="range"] {
+    width: 100px;
+    height: 5px;
+    -webkit-appearance: none;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    outline: none;
+}
+
+.snow-intensity-control input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #4dffea;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(77, 255, 234, 0.5);
+}
+
+/* Индикатор снегопада */
+.snow-indicator {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 1000;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+}
+
+.snow-indicator i {
+    color: #4dffea;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+/* Адаптивность для элементов управления */
+@media (max-width: 768px) {
+    .snow-controls {
+        bottom: 10px;
+        right: 10px;
+    }
+    
+    .snow-toggle {
+        padding: 10px 15px;
+        font-size: 12px;
+    }
+    
+    .snow-intensity-control {
+        padding: 8px 12px;
+    }
+    
+    .snow-intensity-control input[type="range"] {
+        width: 80px;
+    }
+    
+    .snow-indicator {
+        top: 10px;
+        right: 10px;
+        font-size: 10px;
+        padding: 6px 12px;
+    }
+}
